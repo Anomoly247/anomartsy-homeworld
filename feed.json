@@ -1,0 +1,36 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "AO UNIVERSE // Transmissions & Chronicles",
+  "home_page_url": "https://anomartsy.xyz/",
+  "feed_url": "https://anomartsy.xyz/feed.json",
+  "description": "Native developer chronicles, AI art drops, and ecosystem updates from Anom.",
+  "authors": [
+    {
+      "name": "Anom",
+      "url": "https://anomartsy.xyz"
+    }
+  ],
+  "items": [
+    {
+      "id": "transmission-001",
+      "url": "https://anomartsy.xyz/transmissions.html#001",
+      "title": "Beyond the Neon Glow: Launching the 6 Floating Destinations",
+      "content_html": "<p>Our identity is wired into us — online and off. We speak in emotes and glow. We do good.</p><p>The celestial town is live across six specialized floating destinations: Anom's Corner, Moonberry Farm, District B Arcade, The Library, The Sanctuary, and the Neon Gallery. Members travel on aerial animal mounts powered by earned Glow Points and Anom Coins.</p>",
+      "date_published": "2026-09-09T00:00:00Z"
+    },
+    {
+      "id": "transmission-002",
+      "url": "https://anomartsy.xyz/transmissions.html#002",
+      "title": "The AO ALIVE Standard: Why Staggered Timing Creates a Breathing World",
+      "content_html": "<p>Alive is not a color — it's the timing. By un-synchronizing breathing loops across four house periods (3.2s, 3.6s, 3.9s, and 4.1s) and anchoring our visual identity with Electric Cyan (#00eaff), Hot Magenta (#ff00c8), and Gold (#d8ae55) on near-black void grounds, the platform reads as a living, breathing space.</p>",
+      "date_published": "2026-09-08T00:00:00Z"
+    },
+    {
+      "id": "transmission-003",
+      "url": "https://anomartsy.xyz/transmissions.html#003",
+      "title": "17 Years of Moderation Legacy & The Confidence Path",
+      "content_html": "<p>Grounded in a 17-year community moderation legacy, AO safety is architecture. Education gates privilege through S.T.O.P. method training and playable literacy challenges like Spot the Scam. Members grow their permanent identity across five Confidence Path tiers.</p>",
+      "date_published": "2026-09-05T00:00:00Z"
+    }
+  ]
+}
