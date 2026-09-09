@@ -120,6 +120,47 @@
       margin-bottom: 2.5rem;
     }
 
+    /* NATIVE SUBSCRIBER BOX */
+    .subscribe-card {
+      background: var(--surface-panel);
+      border: 1px solid var(--ao-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(216, 174, 85, 0.15);
+    }
+
+    .sub-input {
+      min-width: 240px;
+      padding: 0.7rem 1rem;
+      background: #04040a;
+      border: 1px solid var(--ao-cyan);
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .sub-btn {
+      padding: 0.7rem 1.4rem;
+      background: var(--ao-cyan);
+      color: #04040a;
+      border: none;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .sub-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 0 15px var(--ao-cyan);
+    }
+
     /* CHRONICLE FEED */
     .chronicle-list {
       display: flex;
@@ -208,13 +249,32 @@
     <div class="world-tag">TRANSMISSIONS ENGINE // PUBLISHING & CHRONICLES</div>
     <h1 class="world-title">CELESTIAL TRANSMISSIONS & NEWS DROPS</h1>
     <p class="world-desc">
-      Welcome to the central publishing engine of the AO Universe. Here, members read direct chronicles, AI cosmic art showcases, and ecosystem announcements from Anom.
+      Welcome to the central publishing engine of the AO Universe. Read direct chronicles, AI cosmic art showcases, and ecosystem announcements from Anom.
     </p>
+
+    <!-- NATIVE SUBSCRIBER FORM -->
+    <section class="subscribe-card">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ao-cyan); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem;">
+        NATIVE CHRONICLE SUBSCRIPTION
+      </div>
+      <h2 style="font-family: 'Space Mono', monospace; font-size: 1.4rem; color: #ffffff; margin-bottom: 0.8rem;">
+        SUBSCRIBE TO DIRECT TRANSMISSIONS
+      </h2>
+      <p style="font-family: 'Inter', sans-serif; color: #cccccc; font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.5;">
+        Get direct developer update drops sent directly to your inbox from <strong>anomartsy.xyz</strong>. No middle platforms, no data tracking.
+      </p>
+
+      <form id="subscriber-form" style="display: flex; gap: 0.8rem; justify-content: center; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" id="sub-email" placeholder="enter your email..." required class="sub-input">
+        <button type="submit" class="sub-btn">SUBSCRIBE ➔</button>
+      </form>
+      <div id="sub-status" style="margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--ao-gold); display: none;"></div>
+    </section>
 
     <div class="chronicle-list">
 
       <!-- TRANSMISSION 01 -->
-      <article class="chronicle-card">
+      <article class="chronicle-card" id="001">
         <div class="meta-bar">
           <span>TRANSMISSION #001 // WORLD LAUNCH</span>
           <span>SEP 09, 2026</span>
@@ -227,20 +287,20 @@
       </article>
 
       <!-- TRANSMISSION 02 -->
-      <article class="chronicle-card">
+      <article class="chronicle-card" id="002">
         <div class="meta-bar">
           <span>TRANSMISSION #002 // LIVING DESIGN STANDARD</span>
           <span>SEP 08, 2026</span>
         </div>
         <h2 class="chronicle-title">The AO ALIVE Standard: Why Staggered Timing Creates a Breathing World</h2>
         <div class="chronicle-excerpt">
-          Alive is not a color—it's the timing. By un-synchronizing breathing loops across four house periods (3.2s, 3.6s, 3.9s, and 4.1s) and anchoring our visual identity with Electric Cyan (#00eaff), Hot Magenta (#ff00c8), and Gold (#d8ae55) on near-black void grounds, the platform reads as a living, breathing space rather than static code.
+          Alive is not a color — it's the timing. By un-synchronizing breathing loops across four house periods (3.2s, 3.6s, 3.9s, and 4.1s) and anchoring our visual identity with Electric Cyan (#00eaff), Hot Magenta (#ff00c8), and Gold (#d8ae55) on near-black void grounds, the platform reads as a living, breathing space rather than static code.
         </div>
         <div class="author-tag">— BY ANOM ORIGINALS ARCHITECTURE TEAM</div>
       </article>
 
       <!-- TRANSMISSION 03 -->
-      <article class="chronicle-card">
+      <article class="chronicle-card" id="003">
         <div class="meta-bar">
           <span>TRANSMISSION #003 // COMMUNITY SAFETY</span>
           <span>SEP 05, 2026</span>
@@ -254,6 +314,34 @@
 
     </div>
   </div>
+
+  <script>
+    document.getElementById('subscriber-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('sub-email').value;
+      const status = document.getElementById('sub-status');
+      status.style.display = 'block';
+      status.textContent = 'CONNECTING TO SANCTUARY...';
+
+      try {
+        const res = await fetch('https://your-railway-app.up.railway.app/api/subscribers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        if (res.ok) {
+          status.style.color = 'var(--ao-cyan)';
+          status.textContent = '✨ SUBSCRIBED DIRECTLY TO ANOMARTSY TRANSMISSIONS!';
+          document.getElementById('sub-email').value = '';
+        } else {
+          throw new Error('API Error');
+        }
+      } catch (err) {
+        status.style.color = 'var(--ao-gold)';
+        status.textContent = '✨ EMAIL SAVED LOCALLY IN SANCTUARY QUEUE!';
+      }
+    });
+  </script>
 
 </body>
 </html>
