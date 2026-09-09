@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AO UNIVERSE // Anom's Corner (Kids & Family World)</title>
+  
+  <!-- Typography Standard -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* AO ALIVE Living Design Standard Palette Tokens */
+    :root {
+      --bg-void: #04040a;         /* Homeworld ground color */
+      --ao-cyan: #00eaff;         /* Active status / Pixel signature */
+      --ao-magenta: #ff00c8;      /* Secondary accent / Dot signature */
+      --ao-gold: #d8ae55;         /* Card border & prestige rules */
+      --surface-panel: #141423;   /* Glass surface panel */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GLASS NAVIGATION HUD (18px Blur) */
+    .nav-hud {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 0 24px rgba(0, 234, 255, 0.15);
+    }
+
+    .brand-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hud-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .hud-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: var(--ao-cyan);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .hud-link:hover {
+      color: var(--ao-magenta);
+      text-shadow: 0 0 10px var(--ao-magenta);
+    }
+
+    /* WORLD HERO CONTAINER */
+    .container {
+      padding-top: 8.5rem;
+      padding-bottom: 5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .world-tag {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.3em;
+      color: var(--ao-cyan);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1.world-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    p.world-desc {
+      font-family: 'Inter', sans-serif;
+      color: #cccccc;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* HOUSE 1 CARD GRID (Staggered Breathing 3.2s) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--surface-panel);
+      border: 1px solid var(--ao-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      animation: breathe 3.2s ease-in-out infinite; /* House 1 Pixel & Dot period */
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--ao-cyan);
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.3);
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.02); }
+    }
+
+    .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--ao-gold);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-text {
+      font-family: 'Inter', sans-serif;
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--ao-cyan);
+      color: var(--ao-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--ao-cyan);
+      color: var(--bg-void);
+      box-shadow: 0 0 15px var(--ao-cyan);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CROSS-DOMAIN NAVIGATION HUD -->
+  <nav class="nav-hud">
+    <a href="index.html" class="brand-title">AO UNIVERSE</a>
+    <div class="hud-links">
+      <a href="index.html" class="hud-link">HOMEWORLD</a>
+      <a href="kids.html" class="hud-link" style="color: var(--ao-cyan);">ANOM'S CORNER</a>
+      <a href="transmissions.html" class="hud-link">TRANSMISSIONS</a>
+      <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
+    </div>
+  </nav>
+
+  <!-- MAIN ANOM'S CORNER WORLD CONTENT -->
+  <div class="container">
+    <div class="world-tag">FLOATING WORLD 01 // KIDS & FAMILY</div>
+    <h1 class="world-title">ANOM'S CORNER & THE WORLD OF PIXEL & DOT</h1>
+    <p class="world-desc">
+      A gentle, creative haven in the night sky. Here, younger travelers explore cozy sibling protector stories with Pixel & Dot, learn emotional expression through non-verbal emotes, and color their own flying travel animal companions.
+    </p>
+
+    <div class="grid">
+      <!-- ZONE 1: PIXEL & DOT STORIES -->
+      <div class="card">
+        <div class="card-tag">HOUSE 01 // GUARDIAN STORY</div>
+        <h2 class="card-title">Pixel & Dot Episodes</h2>
+        <p class="card-text">
+          Follow Pixel in his Electric Cyan hoodie and baby sister Dot in her Hot Magenta swaddle as they learn courage, problem-solving, and family care.
+        </p>
+        <a href="transmissions.html" class="action-btn">WATCH EPISODES ➔</a>
+      </div>
+
+      <!-- ZONE 2: COLOR-YOUR-OWN ANIMAL PORTAL -->
+      <div class="card">
+        <div class="card-tag">CREATIVE SANCTUARY // RIDABLES</div>
+        <h2 class="card-title">Color-Your-Own Animal</h2>
+        <p class="card-text">
+          Color a printable travel animal mount, submit it through the Guardian Queue, and watch your creation carry you across celestial portals.
+        </p>
+        <a href="https://anomarsty.lol" class="action-btn">GET COLORING PACKS ➔</a>
+      </div>
+
+      <!-- ZONE 3: MOONBERRY FARM -->
+      <div class="card">
+        <div class="card-tag">STORY PLANET // PASTORAL REALM</div>
+        <h2 class="card-title">Moonberry Farm</h2>
+        <p class="card-text">
+          A luminous pastoral planet within Anom's Corner featuring cozy farmhouses, glowing berry fields, and gentle storytelling.
+        </p>
+        <a href="index.html" class="action-btn">ENTER MOONBERRY ➔</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
