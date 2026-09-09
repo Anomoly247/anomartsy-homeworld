@@ -5,20 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AO UNIVERSE // The Sanctuary</title>
   
+  <!-- Typography Standard -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
+    /* AO ALIVE Living Design Standard Palette Tokens */
     :root {
-      --bg-void: #04040a;
-      --ao-cyan: #00eaff;
-      --ao-magenta: #ff00c8;
-      --ao-gold: #d8ae55;
-      --surface-panel: #141423;
+      --bg-void: #04040a;         /* Homeworld ground color */
+      --ao-cyan: #00eaff;         /* Active status / Primary accent */
+      --ao-magenta: #ff00c8;      /* Secondary accent / Energy signature */
+      --ao-gold: #d8ae55;         /* Card border & prestige rules */
+      --surface-panel: #141423;   /* Glass surface panel */
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background-color: var(--bg-void);
@@ -28,13 +34,14 @@
       overflow-x: hidden;
     }
 
+    /* GLASS NAVIGATION HUD (18px Blur) */
     .nav-hud {
       position: fixed;
       top: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 90%;
-      max-width: 1100px;
+      width: 92%;
+      max-width: 1200px;
       background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -45,23 +52,30 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      box-shadow: 0 0 24px rgba(216, 174, 85, 0.2);
+      box-shadow: 0 0 24px rgba(0, 234, 255, 0.15);
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
 
     .brand-title {
       font-family: 'Space Mono', monospace;
       font-size: 1.1rem;
+      letter-spacing: 0.1em;
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
     }
 
-    .hud-links { display: flex; gap: 1rem; }
+    .hud-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
     .hud-link {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       color: var(--ao-cyan);
       text-decoration: none;
       text-transform: uppercase;
@@ -69,14 +83,15 @@
     }
 
     .hud-link:hover {
-      color: var(--ao-gold);
-      text-shadow: 0 0 10px var(--ao-gold);
+      color: var(--ao-magenta);
+      text-shadow: 0 0 10px var(--ao-magenta);
     }
 
+    /* WORLD CONTAINER */
     .container {
-      padding-top: 8.5rem;
+      padding-top: 9.5rem;
       padding-bottom: 5rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       width: 90%;
     }
@@ -94,6 +109,7 @@
       font-family: 'Space Mono', monospace;
       font-size: 2.2rem;
       margin-bottom: 1rem;
+      color: #ffffff;
     }
 
     p.world-desc {
@@ -104,9 +120,10 @@
       margin-bottom: 2.5rem;
     }
 
+    /* HOUSE 4 CARD GRID (Staggered Breathing 4.1s) */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
@@ -114,19 +131,34 @@
       background: var(--surface-panel);
       border: 1px solid var(--ao-gold);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 1.8rem;
       animation: breathe 4.1s ease-in-out infinite; /* House 4 timing */
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
-      border-color: var(--ao-gold);
-      box-shadow: 0 0 20px rgba(216, 174, 85, 0.35);
+      border-color: var(--ao-cyan);
+      box-shadow: 0 0 22px rgba(0, 234, 255, 0.35);
+      transform: translateY(-4px);
     }
 
     @keyframes breathe {
       0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.02); }
+      50%      { transform: scale(1.018); }
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      background: rgba(4, 4, 10, 0.6);
+      border: 1px solid rgba(216, 174, 85, 0.2);
+      padding: 0.5rem;
     }
 
     .card-tag {
@@ -134,7 +166,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       color: var(--ao-gold);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
       text-transform: uppercase;
     }
 
@@ -142,22 +174,23 @@
       font-family: 'Space Mono', monospace;
       font-size: 1.3rem;
       color: #ffffff;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
 
     .card-text {
       font-family: 'Inter', sans-serif;
       color: #cccccc;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.5;
       margin-bottom: 1.5rem;
     }
 
     .action-btn {
       display: inline-block;
-      padding: 0.6rem 1.4rem;
-      border: 1px solid var(--ao-gold);
-      color: var(--ao-gold);
+      text-align: center;
+      padding: 0.64rem 1.3rem;
+      border: 1px solid var(--ao-cyan);
+      color: var(--ao-cyan);
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
       text-decoration: none;
@@ -167,9 +200,9 @@
     }
 
     .action-btn:hover {
-      background: var(--ao-gold);
+      background: var(--ao-cyan);
       color: var(--bg-void);
-      box-shadow: 0 0 15px var(--ao-gold);
+      box-shadow: 0 0 15px var(--ao-cyan);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -179,53 +212,71 @@
 </head>
 <body>
 
+  <!-- CROSS-DOMAIN NAVIGATION HUD -->
   <nav class="nav-hud">
     <a href="index.html" class="brand-title">AO UNIVERSE</a>
     <div class="hud-links">
       <a href="index.html" class="hud-link">HOMEWORLD</a>
       <a href="kids.html" class="hud-link">ANOM'S CORNER</a>
+      <a href="moonberry.html" class="hud-link">MOONBERRY</a>
       <a href="arcade.html" class="hud-link">ARCADE</a>
       <a href="library.html" class="hud-link">LIBRARY</a>
       <a href="sanctuary.html" class="hud-link" style="color: var(--ao-gold);">SANCTUARY</a>
+      <a href="gallery.html" class="hud-link">GALLERY</a>
       <a href="transmissions.html" class="hud-link">TRANSMISSIONS</a>
+      <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
     </div>
   </nav>
 
+  <!-- MAIN SANCTUARY CONTENT -->
   <div class="container">
-    <div class="world-tag">FLOATING WORLD 04 // MEMBERS' HOME BASE</div>
-    <h1 class="world-title">THE SANCTUARY & COMMUNITY LOUNGES</h1>
+    <div class="world-tag">FLOATING WORLD 05 // MEMBERS' HOME BASE</div>
+    <h1 class="world-title">THE SANCTUARY</h1>
     <p class="world-desc">
-      The Sanctuary is the heart of the celestial town—where your earned profile lives, community lounges stay warm and welcoming, and your Anom Coins and Glow Points fuel travel animal portal transit.
+      The Sanctuary is the grounding heart of the AO Universe. Here, your identity is earned rather than written, your earned Glow Points and Anom Coins reside in secure vaults, and community lounges offer safe, non-transactional connection.
     </p>
 
     <div class="grid">
-      <div class="card">
-        <div class="card-tag">PERMANENT IDENTITY // CONFIDENCE PATH</div>
-        <h2 class="card-title">Member Profile & Progress</h2>
-        <p class="card-text">
-          Your profile is not a form you fill out—it is wired directly into the sky, reflecting your journey across Spark, Mapped, Polished, United, and Architect tiers.
-        </p>
-        <a href="index.html" class="action-btn">VIEW PROFILE ➔</a>
-      </div>
 
-      <div class="card">
-        <div class="card-tag">WALLETS & CURRENCY // DOING GOOD</div>
-        <h2 class="card-title">Glow Points & Anom Coins</h2>
-        <p class="card-text">
-          Track your Glow Points earned through community care and Anom Coins stored in The Sanctuary to unlock rare travel animal mounts and creative supplies.
-        </p>
+      <!-- PANEL 1: LIVING PROFILES & CONFIDENCE PATH -->
+      <article class="card">
+        <div>
+          <img src="assets/emblems/cyber_dragon_badge_cyan.png" alt="Confidence Path Badge" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">SANCTUARY HUB // LIVING PROFILES</div>
+          <h2 class="card-title">Identity & Confidence Path</h2>
+          <p class="card-text">
+            Your profile is a living circuit wired into the night sky. Advance from Level 1 (Spark) to Level 5 (Architect) by completing Story, Vid, and IRL United missions.
+          </p>
+        </div>
+        <a href="transmissions.html" class="action-btn">VIEW CONFIDENCE PATH ➔</a>
+      </article>
 
-        <a href="https://anomarsty.lol" class="action-btn">ARCHIVE STORE ➔</a>
-      </div>
+      <!-- PANEL 2: THE COIN & GLOW VAULT -->
+      <article class="card">
+        <div>
+          <img src="assets/emblems/cyber_dragon_badge_gold.png" alt="Coin & Glow Vault" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">CONTRIBUTION ECONOMY // VAULT</div>
+          <h2 class="card-title">Anom Coins & Glow Vault</h2>
+          <p class="card-text">
+            Check your balances. Glow Points (GP) fuel your travel animal through celestial portals, while Anom Coins (AC) unlock rare mounts in The Archive Shop.
+          </p>
+        </div>
+        <a href="https://anomarsty.lol" class="action-btn">OPEN ARCHIVE SHOP ➔</a>
+      </article>
 
-      <div class="card">
-        <div class="card-tag">K9 SECURITY // TATER & CLIFFORD</div>
-        <h2 class="card-title">Community Lounges</h2>
-        <p class="card-text">
-          Hang out in moderated living room lounges guarded by Tater (K9 Security) & Clifford (Executive Leadership), giving the universe its warmth and jokes.
-        </p>
-        <a href="transmissions.html" class="action-btn">ENTER LOUNGE ➔</a>
-      </div>
+      <!-- PANEL 3: COMMUNITY LOUNGES & K9 SECURITY -->
+      <article class="card">
+        <div>
+          <img src="assets/emblems/ao_collector_emblems_showcase.png" alt="K9 Security Duo Tater & Clifford" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">K9 LEADERSHIP // GUARDIAN QUEUE</div>
+          <h2 class="card-title">Lounges & K9 Security</h2>
+          <p class="card-text">
+            Moderated by Tater & Clifford, community lounges offer warm social spaces. Mission submissions route through optimistic-UI Guardian Queues for family safety.
+          </p>
+        </div>
+        <a href="library.html" class="action-btn">CHECK SAFETY RULES ➔</a>
+      </article>
+
     </div>
   </div>
 
