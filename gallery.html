@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AO UNIVERSE // Neon Gallery</title>
+  <title>AO UNIVERSE // Neon Gallery of Celestial Backdrops</title>
   
   <!-- Typography Standard -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,8 +40,8 @@
       top: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 90%;
-      max-width: 1100px;
+      width: 92%;
+      max-width: 1200px;
       background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -53,6 +53,8 @@
       align-items: center;
       z-index: 1000;
       box-shadow: 0 0 24px rgba(255, 0, 200, 0.2);
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
 
     .brand-title {
@@ -66,13 +68,14 @@
 
     .hud-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .hud-link {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       color: var(--ao-cyan);
       text-decoration: none;
       text-transform: uppercase;
@@ -86,9 +89,9 @@
 
     /* WORLD CONTAINER */
     .container {
-      padding-top: 8.5rem;
+      padding-top: 9.5rem;
       padding-bottom: 5rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       width: 90%;
     }
@@ -117,10 +120,28 @@
       margin-bottom: 2.5rem;
     }
 
+    /* FEATURED CONTACT SHEET BANNER */
+    .featured-sheet {
+      background: var(--surface-panel);
+      border: 1px solid var(--ao-gold);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 25px rgba(255, 0, 200, 0.2);
+    }
+
+    .featured-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
     /* HOUSE 3 CARD GRID (Staggered Breathing 3.9s) */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -128,19 +149,32 @@
       background: var(--surface-panel);
       border: 1px solid var(--ao-gold);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 1.5rem;
       animation: breathe 3.9s ease-in-out infinite; /* House 3 timing */
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
       border-color: var(--ao-magenta);
       box-shadow: 0 0 20px rgba(255, 0, 200, 0.35);
+      transform: translateY(-4px);
     }
 
     @keyframes breathe {
       0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.02); }
+      50%      { transform: scale(1.018); }
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(0, 234, 255, 0.2);
     }
 
     .card-tag {
@@ -148,28 +182,29 @@
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       color: var(--ao-gold);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
 
     .card-title {
       font-family: 'Space Mono', monospace;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: #ffffff;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
 
     .card-text {
       font-family: 'Inter', sans-serif;
       color: #cccccc;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.5;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .action-btn {
       display: inline-block;
-      padding: 0.6rem 1.4rem;
+      text-align: center;
+      padding: 0.6rem 1.2rem;
       border: 1px solid var(--ao-magenta);
       color: var(--ao-magenta);
       font-family: 'JetBrains Mono', monospace;
@@ -201,50 +236,163 @@
       <a href="kids.html" class="hud-link">ANOM'S CORNER</a>
       <a href="moonberry.html" class="hud-link">MOONBERRY</a>
       <a href="arcade.html" class="hud-link">ARCADE</a>
-      <a href="gallery.html" class="hud-link" style="color: var(--ao-magenta);">NEON GALLERY</a>
+      <a href="library.html" class="hud-link">LIBRARY</a>
       <a href="sanctuary.html" class="hud-link">SANCTUARY</a>
+      <a href="gallery.html" class="hud-link" style="color: var(--ao-magenta);">NEON GALLERY</a>
       <a href="transmissions.html" class="hud-link">TRANSMISSIONS</a>
+      <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-cyan);">ARCHIVE SHOP</a>
     </div>
   </nav>
 
   <!-- MAIN NEON GALLERY CONTENT -->
   <div class="container">
-    <div class="world-tag">FLOATING WORLD 05 // ART & COLLECTIONS</div>
-    <h1 class="world-title">NEON GALLERY OF THE CELESTIAL TOWN</h1>
+    <div class="world-tag">FLOATING WORLD 06 // ART & CELESTIAL BACKDROPS</div>
+    <h1 class="world-title">NEON GALLERY: 12 CELESTIAL LANDSCAPES</h1>
     <p class="world-desc">
-      The Neon Gallery is the dedicated world for art, AI drops, and community collections. Set against deep, near-black void backgrounds contrasted with electric cyan, hot magenta, gold, and every neon beyond them, it makes identity and feeling visible in every pixel.
+      Explore the complete collection of 12 high-resolution cosmic art backdrops powering the celestial town. Set against deep void grounds (#04040a) with Electric Cyan (#00eaff), Hot Magenta (#ff00c8), and Celestial Gold (#d8ae55) accents, each backdrop serves as an environment layer for floating worlds and member Sanctuary spaces.
     </p>
 
+    <!-- MASTER CONTACT SHEET BANNER -->
+    <div class="featured-sheet">
+      <div class="card-tag" style="margin-bottom: 0.8rem;">MASTER SHOWCASE // 12 CELESTIAL BACKDROPS CONTACT SHEET</div>
+      <img src="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" alt="The Anomoly Archive - 12 Backgrounds Contact Sheet" class="featured-img" onerror="this.src='assets/emblems/ao_collector_emblems_showcase.png';">
+    </div>
+
+    <!-- 12 INDIVIDUAL CELESTIAL BACKDROP CARDS -->
     <div class="grid">
-      <!-- COLLECTION 1: CELESTIAL BACKGROUNDS -->
-      <div class="card">
-        <div class="card-tag">EXHIBIT 01 // 12 CELESTIAL BACKDROPS</div>
-        <h2 class="card-title">Celestial Landscapes Archives</h2>
-        <p class="card-text">
-          Featuring high-resolution cosmic art drops including <em>Celestial Angel Falls</em>, <em>Cyber Creator Desk</em>, <em>Emerald Moon Dragon Castle</em>, and <em>Starlit Mushroom Forest Path</em>.
-        </p>
-        <a href="transmissions.html" class="action-btn">VIEW EXHIBIT ➔</a>
-      </div>
 
-      <!-- COLLECTION 2: RIDABLE MOUNTS VAULT -->
-      <div class="card">
-        <div class="card-tag">EXHIBIT 02 // TRAVEL ANIMAL VAULT</div>
-        <h2 class="card-title">Cyber-Dragon & Pegasus Showcase</h2>
-        <p class="card-text">
-          Explore the visual anatomy of travel animal mounts—from armor-plated Cyber-Dragons with luminescent circuit wings to Rainbow Unicorns wearing Emote Crowns.
-        </p>
-        <a href="https://anomarsty.lol" class="action-btn">UNPLICATE MOUNTS ➔</a>
-      </div>
+      <!-- BACKDROP 01 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/01_neon_dragon_dream.jpg" alt="Neon Dragon Dream" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #01 // CELESTIAL ARCHITYPE</div>
+          <h2 class="card-title">Neon Dragon Dream</h2>
+          <p class="card-text">High-contrast cosmic wizard and dragon aura set against starry nebulae and glowing spell rings.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
 
-      <!-- COLLECTION 3: COMMUNITY SHOWCASE -->
-      <div class="card">
-        <div class="card-tag">CONFIDENCE PATH // FRONT DOOR GALLERY</div>
-        <h2 class="card-title">Community Member Exhibition</h2>
-        <p class="card-text">
-          Showcases works submitted by Polished, United, and Architect tier members through the Guardian Queue, celebrating real identity and creative growth over volume.
-        </p>
-        <a href="sanctuary.html" class="action-btn">SUBMIT ARTWORK ➔</a>
-      </div>
+      <!-- BACKDROP 02 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/02_cyber_creator_desk.jpg" alt="Cyber Creator Desk" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #02 // WORKSPACE REALM</div>
+          <h2 class="card-title">Cyber Creator Desk</h2>
+          <p class="card-text">Luminescent cyberpunk creator terminal surrounded by floating emote overlays and neon UI displays.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 03 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/03_neon_cosmic_muse.jpg" alt="Neon Cosmic Muse" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #03 // CREATIVE SPIRIT</div>
+          <h2 class="card-title">Neon Cosmic Muse</h2>
+          <p class="card-text">Ethereal celestial guardian channeling magical energy cascades through deep forest reflections.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 04 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/04_starlit_dragon_lounge.jpg" alt="Starlit Dragon Lounge" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #04 // SANCTUARY LOUNGE</div>
+          <h2 class="card-title">Starlit Dragon Lounge</h2>
+          <p class="card-text">Cozy luminescent dragon resting among bioluminescent mushrooms under orbital moons.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 05 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/05_moonlit_forest_spirit.jpg" alt="Moonlit Forest Spirit" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #05 // ANCIENT GUARDIAN</div>
+          <h2 class="card-title">Moonlit Forest Spirit</h2>
+          <p class="card-text">Mystical forest entity weaving glowing energy currents through starlit ancient woodland.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 06 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/06_cosmic_mushroom_cat.jpg" alt="Cosmic Mushroom Cat" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #06 // WHIMSICAL HABITAT</div>
+          <h2 class="card-title">Cosmic Mushroom Cat</h2>
+          <p class="card-text">Whimsical Cheshire feline lounging in a field of glowing neon mushrooms and swirling starlight.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 07 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/07_celestial_angel_falls.jpg" alt="Celestial Angel Falls" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #07 // CELESTIAL HAVEN</div>
+          <h2 class="card-title">Celestial Angel Falls</h2>
+          <p class="card-text">Radiant winged angel over bioluminescent waterfalls and golden moonlit palace towers.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 08 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/08_rainbow_castle_realm.jpg" alt="Rainbow Castle Realm" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #08 // STORYBOOK KINGDOM</div>
+          <h2 class="card-title">Rainbow Castle Realm</h2>
+          <p class="card-text">Luminescent castle reflected on calm waters under twin moons with a rainbow unicorn and dragon.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 09 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/09_emerald_moon_dragon_castle.jpg" alt="Emerald Moon Dragon Castle" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #09 // DRAGON SANCTUARY</div>
+          <h2 class="card-title">Emerald Moon Dragon Castle</h2>
+          <p class="card-text">Emerald-glowing dragon perched above a moonlit castle lagoon surrounded by starlit flora.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 10 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/10_enchanted_river_realm.jpg" alt="Enchanted River Realm" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #10 // PASTORAL WATERS</div>
+          <h2 class="card-title">Enchanted River Realm</h2>
+          <p class="card-text">Tranquil river bridge with a white pegasus and dragon gathering under moonlit waterfalls.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 11 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/11_starlit_mushroom_forest_path.jpg" alt="Starlit Mushroom Forest Path" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #11 // DEEP SPACE PATH</div>
+          <h2 class="card-title">Starlit Mushroom Forest Path</h2>
+          <p class="card-text">Deep cosmic forest path illuminated by glowing neon mushrooms and floating starlight spores.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
+      <!-- BACKDROP 12 -->
+      <article class="card">
+        <div>
+          <img src="assets/backgrounds/12_moonlit_castle_unicorn_dragon.jpg" alt="Moonlit Castle Unicorn Dragon" class="card-img" onerror="this.style.display='none';">
+          <div class="card-tag">BACKDROP #12 // CELESTIAL TOWN</div>
+          <h2 class="card-title">Moonlit Castle Unicorn Dragon</h2>
+          <p class="card-text">Majestic moonlit castle reflecting vibrant magenta and cyan light waves with flying travel mounts.</p>
+        </div>
+        <a href="assets/backgrounds/ao-backgrounds-contact-sheet.jpg" class="action-btn" target="_blank">VIEW HIGH-RES ➔</a>
+      </article>
+
     </div>
   </div>
 
