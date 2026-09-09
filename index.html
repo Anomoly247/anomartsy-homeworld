@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AO UNIVERSE // Celestial Homeworld</title>
+  
+  <!-- Typography Standard -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* AO ALIVE Living Design Standard Palette Tokens */
+    :root {
+      --bg-void: #04040a;         /* Homeworld ground color */
+      --ao-cyan: #00eaff;         /* Active status / Primary accent */
+      --ao-magenta: #ff00c8;      /* In-Build status / Energy signature */
+      --ao-gold: #d8ae55;         /* Planned status / Prestige rules */
+      --surface-panel: #141423;   /* Glass surface panel */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GLASS NAVIGATION HUD (18px Blur) */
+    .nav-hud {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 0 24px rgba(0, 234, 255, 0.15);
+    }
+
+    .brand-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hud-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .hud-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: var(--ao-cyan);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .hud-link:hover {
+      color: var(--ao-magenta);
+      text-shadow: 0 0 10px var(--ao-magenta);
+    }
+
+    /* HERO CANVAS & STAGGERED BREATHING LOOP */
+    .hero-container {
+      padding-top: 9rem;
+      padding-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hud-tag {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.3em;
+      color: var(--ao-cyan);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card {
+      background: #000000;
+      border: 2px solid var(--ao-gold);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      width: 85%;
+      margin: 1rem 0 2.5rem 0;
+      animation: breathe 3.6s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.03); }
+    }
+
+    /* THREE-COLOR SIGNATURE PULSE RING (18px / 36px / 54px) */
+    .pulse-ring {
+      box-shadow: 0 0 18px rgba(0, 234, 255, 0.6),
+                  0 0 36px rgba(255, 0, 200, 0.35),
+                  0 0 54px rgba(216, 174, 85, 0.2);
+    }
+
+    h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    p.manifesto {
+      font-family: 'Inter', sans-serif;
+      color: #cccccc;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .portal-btn {
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
+      border: 1px solid var(--ao-cyan);
+      color: var(--ao-cyan);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: transparent;
+      border-radius: 8px;
+    }
+
+    .portal-btn:hover {
+      background: var(--ao-cyan);
+      color: var(--bg-void);
+      box-shadow: 0 0 20px var(--ao-cyan);
+    }
+
+    /* REDUCED MOTION ACCESSIBILITY */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CROSS-DOMAIN NAVIGATION HUD -->
+  <nav class="nav-hud">
+    <a href="https://anomartsy.xyz" class="brand-title">AO UNIVERSE</a>
+    <div class="hud-links">
+      <a href="https://anomartsy.xyz" class="hud-link" style="color: var(--ao-cyan);">HOMEWORLD</a>
+      <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
+    </div>
+  </nav>
+
+  <!-- MAIN HERO SECTION -->
+  <main class="hero-container">
+    <div class="hud-tag">STATUS: ACTIVE // DIVISION 01</div>
+    
+    <div class="hero-card pulse-ring">
+      <h1>THE CELESTIAL TOWN</h1>
+      <p class="manifesto">
+        <em>"Our identity is wired into us — online and off. We speak in emotes and glow. We do good."</em>
+      </p>
+      <a href="https://anomarsty.lol" class="portal-btn">ENTER THE ANOMOLY ARCHIVE</a>
+    </div>
+  </main>
+
+</body>
+</html>
