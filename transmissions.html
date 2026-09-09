@@ -240,7 +240,7 @@
       <a href="sanctuary.html" class="hud-link">SANCTUARY</a>
       <a href="gallery.html" class="hud-link">GALLERY</a>
       <a href="transmissions.html" class="hud-link" style="color: var(--ao-cyan);">TRANSMISSIONS</a>
-      <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
+      <a href="https://anomartsy.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
     </div>
   </nav>
 
@@ -281,7 +281,7 @@
         </div>
         <h2 class="chronicle-title">Beyond the Neon Glow: Launching the 6 Floating Destinations</h2>
         <div class="chronicle-excerpt">
-          "Our identity is wired into us — online and off. We speak in emotes and glow. We do good." The celestial town is live across six specialized floating destinations: Anom's Corner, Moonberry Farm, District B Arcade, The Library, The Sanctuary, and the Neon Gallery. Members travel on aerial animal mounts powered by earned Glow Points and Anom Coins.
+          "Our identity is wired into us — online and off. We speak in emotes and glow. We do good." The celestial town is live across six specialized floating destinations: Anom's Corner, Moonberry[...]
         </div>
         <div class="author-tag">— BY ANOM // FOUNDER, ANOM ORIGINALS</div>
       </article>
@@ -294,7 +294,7 @@
         </div>
         <h2 class="chronicle-title">The AO ALIVE Standard: Why Staggered Timing Creates a Breathing World</h2>
         <div class="chronicle-excerpt">
-          Alive is not a color — it's the timing. By un-synchronizing breathing loops across four house periods (3.2s, 3.6s, 3.9s, and 4.1s) and anchoring our visual identity with Electric Cyan (#00eaff), Hot Magenta (#ff00c8), and Gold (#d8ae55) on near-black void grounds, the platform reads as a living, breathing space rather than static code.
+          Alive is not a color — it's the timing. By un-synchronizing breathing loops across four house periods (3.2s, 3.6s, 3.9s, and 4.1s) and anchoring our visual identity with Electric Cyan (#00[...]
         </div>
         <div class="author-tag">— BY ANOM ORIGINALS ARCHITECTURE TEAM</div>
       </article>
@@ -307,7 +307,7 @@
         </div>
         <h2 class="chronicle-title">17 Years of Moderation Legacy & The Confidence Path</h2>
         <div class="chronicle-excerpt">
-          Grounded in a 17-year community moderation legacy, AO safety is architecture, not overhead. Education gates privilege through S.T.O.P. method training and playable literacy challenges like Spot the Scam. Members grow their permanent identity across five Confidence Path tiers: Spark, Mapped, Polished, United, and Architect.
+          Grounded in a 17-year community moderation legacy, AO safety is architecture, not overhead. Education gates privilege through S.T.O.P. method training and playable literacy challenges like S[...]
         </div>
         <div class="author-tag">— BY K9 SECURITY & AMBASSADOR STEWARDS</div>
       </article>
@@ -318,27 +318,35 @@
   <script>
     document.getElementById('subscriber-form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('sub-email').value;
+
+      const emailInput = document.getElementById('sub-email');
+      const email = emailInput.value.trim();
       const status = document.getElementById('sub-status');
+
       status.style.display = 'block';
+      status.style.color = 'var(--ao-gold)';
       status.textContent = 'CONNECTING TO SANCTUARY...';
 
       try {
-        const res = await fetch('https://anomartsy-homeworld-production.up.railway.app/api/subscribers', {
+        const res = await fetch('https://anomartsy-homeworld-production.up.railway.app/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email })
         });
-        if (res.ok) {
-          status.style.color = 'var(--ao-cyan)';
-          status.textContent = '✨ SUBSCRIBED DIRECTLY TO ANOMARTSY TRANSMISSIONS!';
-          document.getElementById('sub-email').value = '';
-        } else {
-          throw new Error('API Error');
+
+        const bodyText = await res.text();
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${bodyText}`);
         }
+
+        status.style.color = 'var(--ao-cyan)';
+        status.textContent = '✨ SUBSCRIBED DIRECTLY TO ANOMARTSY TRANSMISSIONS!';
+        emailInput.value = '';
       } catch (err) {
-        status.style.color = 'var(--ao-gold)';
-        status.textContent = '✨ EMAIL SAVED LOCALLY IN SANCTUARY QUEUE!';
+        console.error('Subscription failed:', err);
+        status.style.color = 'var(--ao-magenta)';
+        status.textContent = 'Subscription failed. Please try again.';
       }
     });
   </script>
