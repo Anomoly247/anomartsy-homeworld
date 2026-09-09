@@ -15,8 +15,8 @@
     :root {
       --bg-void: #04040a;         /* Homeworld ground color */
       --ao-cyan: #00eaff;         /* Active status / Primary accent */
-      --ao-magenta: #ff00c8;      /* In-Build status / Energy signature */
-      --ao-gold: #d8ae55;         /* Planned status / Prestige rules */
+      --ao-magenta: #ff00c8;      /* Secondary accent / Energy signature */
+      --ao-gold: #d8ae55;         /* Card border & prestige rules */
       --surface-panel: #141423;   /* Glass surface panel */
     }
 
@@ -40,8 +40,8 @@
       top: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 90%;
-      max-width: 1100px;
+      width: 92%;
+      max-width: 1200px;
       background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -53,6 +53,8 @@
       align-items: center;
       z-index: 1000;
       box-shadow: 0 0 24px rgba(0, 234, 255, 0.15);
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
 
     .brand-title {
@@ -66,13 +68,14 @@
 
     .hud-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .hud-link {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       color: var(--ao-cyan);
       text-decoration: none;
       text-transform: uppercase;
@@ -84,83 +87,158 @@
       text-shadow: 0 0 10px var(--ao-magenta);
     }
 
-    /* HERO CANVAS & STAGGERED BREATHING LOOP */
-    .hero-container {
-      padding-top: 9rem;
+    /* HERO CONTAINER & THREE-COLOR PULSE RING */
+    .hero {
+      padding-top: 9.5rem;
       padding-bottom: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 90%;
     }
 
-    .hud-tag {
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      background: var(--surface-panel);
+      border: 1px solid var(--ao-cyan);
       font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.3em;
+      font-size: 0.8rem;
       color: var(--ao-cyan);
-      font-size: 0.75rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      animation: pulseRing 2.6s ease-in-out infinite;
     }
 
-    .hero-card {
-      background: #000000;
-      border: 2px solid var(--ao-gold);
-      border-radius: 24px;
-      padding: 3rem 2rem;
-      max-width: 800px;
-      width: 85%;
-      margin: 1rem 0 2.5rem 0;
-      animation: breathe 3.6s ease-in-out infinite;
+    @keyframes pulseRing {
+      0%, 100% {
+        box-shadow: 0 0 18px rgba(0, 234, 255, 0.6),
+                    0 0 36px rgba(255, 0, 200, 0.35),
+                    0 0 54px rgba(216, 174, 85, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(0, 234, 255, 0.9),
+                    0 0 52px rgba(255, 0, 200, 0.55),
+                    0 0 78px rgba(216, 174, 85, 0.3);
+      }
     }
 
-    @keyframes breathe {
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.03); }
-    }
-
-    /* THREE-COLOR SIGNATURE PULSE RING (18px / 36px / 54px) */
-    .pulse-ring {
-      box-shadow: 0 0 18px rgba(0, 234, 255, 0.6),
-                  0 0 36px rgba(255, 0, 200, 0.35),
-                  0 0 54px rgba(216, 174, 85, 0.2);
-    }
-
-    h1 {
+    h1.hero-title {
       font-family: 'Space Mono', monospace;
-      font-size: 2.2rem;
+      font-size: 2.8rem;
+      line-height: 1.2;
       margin-bottom: 1rem;
       color: #ffffff;
     }
 
-    p.manifesto {
+    p.hero-tagline {
       font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
       color: #cccccc;
       line-height: 1.6;
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
-    .portal-btn {
+    .hero-tagline strong {
+      color: var(--ao-cyan);
+    }
+
+    /* FLOATING DESTINATIONS GRID */
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 90%;
+      padding-bottom: 5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* STAGGERED BREATHING HOUSES */
+    .card {
+      background: var(--surface-panel);
+      border: 1px solid var(--ao-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-house-1 { animation: breathe 3.2s ease-in-out infinite; }
+    .card-house-2 { animation: breathe 3.6s ease-in-out infinite; }
+    .card-house-3 { animation: breathe 3.9s ease-in-out infinite; }
+    .card-house-4 { animation: breathe 4.1s ease-in-out infinite; }
+
+    .card:hover {
+      border-color: var(--ao-cyan);
+      box-shadow: 0 0 22px rgba(0, 234, 255, 0.35);
+      transform: translateY(-4px);
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.02); }
+    }
+
+    .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--ao-gold);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.35rem;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-text {
+      font-family: 'Inter', sans-serif;
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-btn {
       display: inline-block;
-      padding: 0.8rem 2.2rem;
+      text-align: center;
+      padding: 0.6rem 1.4rem;
       border: 1px solid var(--ao-cyan);
       color: var(--ao-cyan);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
       text-decoration: none;
+      letter-spacing: 0.15em;
+      border-radius: 6px;
       transition: all 0.3s ease;
-      background: transparent;
-      border-radius: 8px;
     }
 
-    .portal-btn:hover {
+    .action-btn:hover {
       background: var(--ao-cyan);
       color: var(--bg-void);
-      box-shadow: 0 0 20px var(--ao-cyan);
+      box-shadow: 0 0 15px var(--ao-cyan);
     }
 
-    /* REDUCED MOTION ACCESSIBILITY */
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
     }
@@ -168,25 +246,108 @@
 </head>
 <body>
 
-  <!-- CROSS-DOMAIN NAVIGATION HUD -->
+  <!-- CROSS-DOMAIN NAVIGATION HUD WITH ALL 6 FLOATING WORLDS -->
   <nav class="nav-hud">
-    <a href="https://anomartsy.xyz" class="brand-title">AO UNIVERSE</a>
+    <a href="index.html" class="brand-title">AO UNIVERSE</a>
     <div class="hud-links">
-      <a href="https://anomartsy.xyz" class="hud-link" style="color: var(--ao-cyan);">HOMEWORLD</a>
+      <a href="index.html" class="hud-link" style="color: var(--ao-cyan);">HOMEWORLD</a>
+      <a href="kids.html" class="hud-link">ANOM'S CORNER</a>
+      <a href="moonberry.html" class="hud-link">MOONBERRY</a>
+      <a href="arcade.html" class="hud-link">ARCADE</a>
+      <a href="library.html" class="hud-link">LIBRARY</a>
+      <a href="sanctuary.html" class="hud-link">SANCTUARY</a>
+      <a href="gallery.html" class="hud-link">GALLERY</a>
+      <a href="transmissions.html" class="hud-link">TRANSMISSIONS</a>
       <a href="https://anomarsty.lol" class="hud-link" style="color: var(--ao-magenta);">ARCHIVE SHOP</a>
     </div>
   </nav>
 
-  <!-- MAIN HERO SECTION -->
-  <main class="hero-container">
-    <div class="hud-tag">STATUS: ACTIVE // DIVISION 01</div>
-    
-    <div class="hero-card pulse-ring">
-      <h1>THE CELESTIAL TOWN</h1>
-      <p class="manifesto">
-        <em>"Our identity is wired into us — online and off. We speak in emotes and glow. We do good."</em>
-      </p>
-      <a href="https://anomarsty.lol" class="portal-btn">ENTER THE ANOMOLY ARCHIVE</a>
+  <!-- HOMEWORLD HERO SECTION -->
+  <header class="hero">
+    <div class="hero-badge">AO ALIVE // CELESTIAL TOWN</div>
+    <h1 class="hero-title">THE AO UNIVERSE</h1>
+    <p class="hero-tagline">
+      "Our identity is wired into us — online and off. We speak in <strong>emotes and glow</strong>. We do good."
+    </p>
+  </header>
+
+  <!-- FLOATING WORLDS CONSTELLATION MAP -->
+  <main class="container">
+    <h2 class="section-title">CELESTIAL DESTINATION PORTALS</h2>
+    <div class="grid">
+
+      <!-- WORLD 1: ANOM'S CORNER -->
+      <article class="card card-house-1">
+        <div>
+          <div class="card-tag">FLOATING WORLD 01 // KIDS & FAMILY</div>
+          <h3 class="card-title">Anom's Corner</h3>
+          <p class="card-text">
+            Cozy sibling protector stories with Pixel & Dot, non-verbal emote communication, and printable color-your-own travel animals.
+          </p>
+        </div>
+        <a href="kids.html" class="action-btn">ENTER ANOM'S CORNER ➔</a>
+      </article>
+
+      <!-- WORLD 2: MOONBERRY FARM -->
+      <article class="card card-house-1">
+        <div>
+          <div class="card-tag">FLOATING WORLD 02 // STORY REALM</div>
+          <h3 class="card-title">Moonberry Farm</h3>
+          <p class="card-text">
+            A pastoral planet nested in the sky featuring cozy farmhouses, luminescent berry fields, and gratitude care missions.
+          </p>
+        </div>
+        <a href="moonberry.html" class="action-btn">VISIT MOONBERRY ➔</a>
+      </article>
+
+      <!-- WORLD 3: DISTRICT B ARCADE -->
+      <article class="card card-house-3">
+        <div>
+          <div class="card-tag">FLOATING WORLD 03 // PURPOSEFUL PLAY</div>
+          <h3 class="card-title">District B Arcade</h3>
+          <p class="card-text">
+            Retro synthwave CRT gaming sector hosting <em>Off-Grid</em> and <em>Sky Navigator</em>, where play earns Glow Points and Anom Coins.
+          </p>
+        </div>
+        <a href="arcade.html" class="action-btn">LAUNCH ARCADE ➔</a>
+      </article>
+
+      <!-- WORLD 4: THE LIBRARY -->
+      <article class="card card-house-2">
+        <div>
+          <div class="card-tag">FLOATING WORLD 04 // LITERACY & SAFETY</div>
+          <h3 class="card-title">The Library</h3>
+          <p class="card-text">
+            Drip-fed internet safety, S.T.O.P. method training, and playable literacy games like <em>Spot the Scam</em> and <em>Link Detective</em>.
+          </p>
+        </div>
+        <a href="library.html" class="action-btn">ENTER LIBRARY ➔</a>
+      </article>
+
+      <!-- WORLD 5: THE SANCTUARY -->
+      <article class="card card-house-4">
+        <div>
+          <div class="card-tag">FLOATING WORLD 05 // MEMBERS' HOME BASE</div>
+          <h3 class="card-title">The Sanctuary</h3>
+          <p class="card-text">
+            The heart of the celestial town—where earned member profiles live, community lounges stay warm, and coins fuel travel mounts.
+          </p>
+        </div>
+        <a href="sanctuary.html" class="action-btn">OPEN SANCTUARY ➔</a>
+      </article>
+
+      <!-- WORLD 6: NEON GALLERY -->
+      <article class="card card-house-3">
+        <div>
+          <div class="card-tag">FLOATING WORLD 06 // ART & COLLECTIONS</div>
+          <h3 class="card-title">Neon Gallery</h3>
+          <p class="card-text">
+            Showcase of cosmic art drops, travel animal anatomical showcases, and front-door member community exhibitions.
+          </p>
+        </div>
+        <a href="gallery.html" class="action-btn">EXPLORE GALLERY ➔</a>
+      </article>
+
     </div>
   </main>
 
