@@ -1,4 +1,4 @@
-## 🌌 AO UNIVERSE // Celestial Homeworld (`anomartsy.xyz`)
+# 🌌 AO UNIVERSE // Celestial Homeworld (`anomartsy.xyz`)
 
 > *"Our identity is wired into us — online and off. We speak in emotes and glow. We do good."*  
 > — **Anom (Eliza Wood)** // Founder, Anom Originals
@@ -55,7 +55,7 @@ The constellation map on `anomartsy.xyz` organizes the universe into 12 operatio
 | **YouTube** | Video Transmissions & Digital Storybooks | In Build | Magenta (`#ff00c8`) |
 | **Anomoly AI** | Upstander Assistance & Guardian Queue | Planned | Gold (`#d8ae55`) |
 | **Brand Kit** | Living Design Tokens & Assets | Planned | Gold (`#d8ae55`) |
-| **IP & Brand** | Osthaven Associates Licensing & Governance | Planned | Gold (`#d8ae55`) |
+| **IP & Brand** | Anom Originals Licensing & Governance | Planned | Gold (`#d8ae55`) |
 
 ---
 
@@ -84,5 +84,5 @@ The AO Universe runs on a dual-reward economy stored within The Sanctuary:
     Hosting: GitHub Pages (Custom Domain Enforcement with HTTPS)
     DNS Manager: Manus DNS (A records pointing to GitHub Pages IPs + CNAME www ➔ anomoly247.github.io)
 
-© 2019–2026 Anom Originals / Osthaven Associates. Built to last, not to be sold.
+© 2019–2026 Anom Originals. Built to last, not to be sold.
 
