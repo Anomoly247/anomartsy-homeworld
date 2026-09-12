@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AO ALIVE Digital Systems and Brand Kit for the Anomartsy Homeworld.">
+  <title>Digital Systems &amp; Brand Kit // Anomartsy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --void:#04040a; --shell:#0a0a10; --panel:#141423; --cyan:#00eaff; --magenta:#ff00c8; --gold:#d8ae55; --ink:#f7f9ff; --muted:#abb4cc; --edge:rgba(255,255,255,.18); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--void); background-image:radial-gradient(circle at 10% 0%,rgba(0,234,255,.11),transparent 30%),radial-gradient(circle at 92% 22%,rgba(255,0,200,.09),transparent 28%); font-family:Inter,system-ui,sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    .nav { position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 5vw;background:rgba(4,4,10,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,234,255,.22); }
+    .brand,h1,h2,h3,.nav a,.eyebrow,.tag,.metric { font-family:"Space Mono",monospace; }
+    .brand { color:var(--cyan);font-weight:700;text-decoration:none;letter-spacing:.04em; }
+    .nav-links { display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.55rem 1.05rem; }
+    .nav-links a { color:var(--muted);font-size:.69rem;text-decoration:none;letter-spacing:.04em; }
+    .nav-links a:hover,.nav-links a:focus-visible { color:var(--cyan); }
+    main { width:min(1140px,90vw);margin:auto;padding:4.8rem 0; }
+    .hero { max-width:850px;margin-bottom:2.2rem; }
+    .eyebrow,.tag { color:var(--gold);font-size:.72rem;letter-spacing:.1em; }
+    h1 { margin:.55rem 0 1rem;font-size:clamp(2.3rem,6vw,5.2rem);line-height:1.02;text-shadow:0 0 28px rgba(0,234,255,.25); }
+    h2 { margin:.45rem 0 .85rem;font-size:clamp(1.45rem,3vw,2.3rem); }
+    h3 { margin:.4rem 0;color:var(--cyan);font-size:1rem; }
+    p { color:var(--muted); }
+    .lead { max-width:760px;font-size:1.08rem; }
+    section,.card { background:linear-gradient(135deg,rgba(20,20,35,.88),rgba(8,9,18,.9));border:1px solid var(--edge);border-radius:18px;backdrop-filter:blur(18px);box-shadow:0 0 30px rgba(0,234,255,.07); }
+    section { margin-top:1.6rem;padding:clamp(1.25rem,3vw,2.3rem); }
+    .section-title { display:flex;align-items:center;gap:.65rem; }
+    .section-title::before { content:"";width:.62rem;height:.62rem;border-radius:50%;background:var(--magenta);box-shadow:0 0 15px var(--magenta); }
+    .palette,.motion,.grid { display:grid;gap:1rem; }
+    .palette { grid-template-columns:repeat(4,1fr);margin-top:1.3rem; }
+    .swatch { overflow:hidden;padding:0 1rem 1rem; }
+    .swatch-color { height:82px;margin:0 -1rem 1rem;background:var(--swatch);border-bottom:1px solid var(--edge); }
+    .hex { color:var(--ink);font:600 .9rem "JetBrains Mono",monospace; }
+    .detail { margin:.25rem 0 0;color:var(--muted);font-size:.82rem; }
+    .motion { grid-template-columns:repeat(4,1fr);margin-top:1.3rem; }
+    .motion-card { padding:1.1rem;position:relative;overflow:hidden; }
+    .orb { width:2rem;height:2rem;margin:0 0 .7rem;border-radius:50%;background:var(--cyan);box-shadow:0 0 25px var(--cyan);animation:breathe var(--period) ease-in-out infinite; }
+    .metric { color:#fff;font-size:1.35rem; }
+    .grid { grid-template-columns:repeat(2,1fr);margin-top:1.3rem; }
+    .card { padding:1.25rem; }
+    .list { margin:1rem 0 0;padding-left:1.3rem;color:var(--muted); }
+    .list li { margin:.55rem 0; }
+    code { color:var(--cyan);font-family:"JetBrains Mono",monospace;font-size:.9em; }
+    footer { padding:2rem 5vw;border-top:1px solid rgba(0,234,255,.22);text-align:center;font-size:.8rem; }
+    footer p { margin:0; }
+    @keyframes breathe { 0%,100% { transform:scale(.78);opacity:.6; } 50% { transform:scale(1.3);opacity:1; } }
+    @media (max-width:900px) { .nav { align-items:flex-start;flex-direction:column; } .nav-links { justify-content:flex-start; } .palette,.motion { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px) { main { width:92vw;padding-top:3rem; } .palette,.motion,.grid { grid-template-columns:1fr; } h1 { font-size:2.7rem; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important;transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html">ANOMARTSY // HOMEWORLD</a>
+    <div class="nav-links"><a href="sanctuary.html">SANCTUARY</a><a href="arcade.html">DISTRICT B ARCADE</a><a href="library.html">THE LIBRARY</a><a href="kids.html">KIDS CORNER</a><a href="systems.html" aria-current="page">BRAND KIT</a><a href="transmissions.html">CHRONICLES</a><a href="https://anomarsty.lol" target="_blank" rel="noopener noreferrer">ARCHIVE SHOP ↗</a></div>
+  </nav>
+  <main>
+    <header class="hero"><div class="eyebrow">DIVISION 04 &amp; 11 // STATUS: IN BUILD</div><h1>Digital Systems &amp; Brand Kit</h1><p class="lead">The official AO ALIVE living design standard, motion timing engine, and enterprise operating system for the Anomartsy universe.</p></header>
+    <section>
+      <div class="section-title"><div class="tag">COLOR SYSTEM // AO ALIVE PALETTE</div></div><h2>Locked Palette Anchors</h2><p>Alive is not a default color. These anchors are locked to prevent uncalibrated web defaults such as <code>#00ffff</code>, <code>#ff00ff</code>, and legacy purples.</p>
+      <div class="palette">
+        <article class="card swatch"><div class="swatch-color" style="--swatch:#00eaff"></div><h3>AO Cyan</h3><div class="hex">#00eaff</div><p class="detail">Primary accent // Pixel signature</p></article>
+        <article class="card swatch"><div class="swatch-color" style="--swatch:#ff00c8"></div><h3>AO Magenta</h3><div class="hex">#ff00c8</div><p class="detail">Secondary accent // Dot signature</p></article>
+        <article class="card swatch"><div class="swatch-color" style="--swatch:#d8ae55"></div><h3>AO Gold</h3><div class="hex">#d8ae55</div><p class="detail">Prestige // Borders and rules</p></article>
+        <article class="card swatch"><div class="swatch-color" style="--swatch:#04040a"></div><h3>Void Ground</h3><div class="hex">#04040a</div><p class="detail">Homeworld and marketing canvas</p></article>
+      </div>
+    </section>
+    <section>
+      <div class="section-title"><div class="tag">MOTION ENGINE // STAGGERED BREATHING</div></div><h2>The “Alive” Motion Engine</h2><p>Four houses breathe on deliberately different, non-synchronized loops so visual elements pulse organically without bouncing together. The signature pulse ring uses 18px Cyan, 36px Magenta, and 54px Gold layers.</p>
+      <div class="motion">
+        <article class="card motion-card"><div class="orb" style="--period:3.2s"></div><div class="tag">HOUSE 1</div><div class="metric">3.2s</div><p>Pixel &amp; Dot Farm / Moonberry Gateway</p></article>
+        <article class="card motion-card"><div class="orb" style="--period:3.6s;background:var(--magenta);box-shadow:0 0 25px var(--magenta)"></div><div class="tag">HOUSE 2</div><div class="metric">3.6s</div><p>Clifford &amp; Tater Security HQ</p></article>
+        <article class="card motion-card"><div class="orb" style="--period:3.9s;background:var(--gold);box-shadow:0 0 25px var(--gold)"></div><div class="tag">HOUSE 3</div><div class="metric">3.9s</div><p>Mood Buddies Co-op Arcade</p></article>
+        <article class="card motion-card"><div class="orb" style="--period:4.1s;background:linear-gradient(135deg,var(--cyan),var(--magenta));box-shadow:0 0 25px var(--magenta)"></div><div class="tag">HOUSE 4</div><div class="metric">4.1s</div><p>Sassy Patrol Guardians</p></article>
+      </div>
+    </section>
+    <div class="grid">
+      <section><div class="section-title"><div class="tag">FOUNDATION // 1999 HTML + AI COSMIC ARCHITECTURE</div></div><h2>Built for Continuity</h2><p>The technical foundation bridges 17 years of community trust, including the FUBAR legacy since 2009, with modern static GitHub Pages hosting and AI-assisted cosmic art pipelines.</p><ul class="list"><li>Semantic HTML and resilient static delivery</li><li>Glass surfaces with an 18px backdrop blur</li><li>Accessible reduced-motion fallbacks</li></ul></section>
+      <section><div class="section-title"><div class="tag">ENTERPRISE PIPELINE // HUB &amp; SPOKE</div></div><h2>Multi-Platform Asset Reuse SOP</h2><p>A single master artwork feeds a disciplined weekly rhythm across the ecosystem.</p><ul class="list"><li>Monday — Mood Patch memes</li><li>Tuesday — native transmissions on <code>anomartsy.xyz</code></li><li>Wednesday — Shutterstock batch uploads, Shop ID 1970316</li><li>Thursday — YouTube walkthroughs, <code>@anomoriginals</code></li><li>Friday — Spreadshop cross-promotion, <code>anomoriginals</code></li></ul></section>
+    </div>
+  </main>
+  <footer><p>© 2026 Anom Originals. All rights reserved. Operating under anomartsy.xyz &amp; anomarsty.lol.</p></footer>
+</body>
+</html>
