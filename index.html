@@ -55,3 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+<script>
+// Safety net for any remaining /games/<slug> PLAY buttons from xyz -> lol
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a');
+  if(!a) return;
+  var href = a.getAttribute('href') || a.href || '';
+  if(href.includes('/games/pixel-dot') || /\/games\/[a-z0-9_-]+$/i.test(href) && href.includes('anomarsty.lol/games/') && !href.includes('?house=')){
+    e.preventDefault();
+    window.location.href = 'https://anomarsty.lol/games/?house=1&mount=aurora';
+  }
+});
+</script>
