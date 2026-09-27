@@ -40,3 +40,14 @@ document.addEventListener('click', function(e){
   }
 });
 </script>
+<script>
+document.addEventListener('click', function(e){
+  var b = e.target.closest('button,a');
+  if(!b) return;
+  var txt = (b.textContent||'').toUpperCase();
+  if(txt.includes('EXPLORE GAMES') || txt.includes('EXPLORE')){
+    e.preventDefault();
+    window.location.href='https://anomarsty.lol/games/?house=1&mount=aurora';
+  }
+}, true);
+</script>
