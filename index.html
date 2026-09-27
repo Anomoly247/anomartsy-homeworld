@@ -29,59 +29,14 @@ Error generating stack: `+l.message+`
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
 </body>
-</html>
-<script>
-// Fix all old per-game 404s: /games/?house=1&mount=aurora -> /games/?house=X
-document.addEventListener('DOMContentLoaded', () => {
-  const map = {
-    'pixel-dot': '1', 'moonberry': '1', 'kids': '1', 'hearth': '1',
-    'off-grid': '3', 'sky-navigator': '3', 'arcade': '3', 'gallery': '3',
-    'library': '2', 'sanctuary': '4'
-  };
-  document.querySelectorAll('a[href*="anomarsty.lol/games/"]').forEach(a => {
-    try {
-      const url = new URL(a.href);
-      const slug = url.pathname.split('/').pop();
-      if (slug &&!url.search.includes('house=')) {
-        const house = map[slug] || '1';
-        const mount = house === '3'? 'cyberdragon' : 'aurora';
-        a.href = `https://anomarsty.lol/games/?house=1&mount=aurora
-        // also update visible text if it shows the old path
-        if (a.textContent.includes('anomarsty.lol/games/')) {
-          a.textContent = a.textContent.replace(/anomarsty\.lol\/games\/[a-z0-9_-]+/, `anomarsty.lol/games/?house=1&mount=aurora
-        }
-      }
-    } catch(e){}
-  });
-});
-</script>
-
-<script>
-// Safety net for any remaining /games/<slug> PLAY buttons from xyz -> lol
+</html><script>
 document.addEventListener('click', function(e){
   var a = e.target.closest('a');
   if(!a) return;
-  var href = a.getAttribute('href') || a.href || '';
-  if(href.includes('/games/?house=1&mount=aurora') || /\/games\/[a-z0-9_-]+$/i.test(href) && href.includes('anomarsty.lol/games/') && !href.includes('?house=')){
+  var h = a.getAttribute('href') || '';
+  if(h.indexOf('/games/')>-1 && h.indexOf('?house=')===-1){
     e.preventDefault();
-    window.location.href = 'https://anomarsty.lol/games/?house=1&mount=aurora';
+    window.location.href='https://anomarsty.lol/games/?house=1&mount=aurora';
   }
 });
-</script>
-<script>
-(function(){
-  function goHub(e){
-    var t=e.target.closest('button,a');
-    if(!t) return;
-    var txt=(t.textContent||'').toUpperCase();
-    if(txt.includes('PLAY')||txt.includes('ENTER WORLD')){
-      var href=t.getAttribute('href')||t.href||'';
-      if(href.includes('/games/') && !href.includes('?house=')){
-        e.preventDefault();
-        location.href='https://anomarsty.lol/games/?house=1&mount=aurora';
-      }
-    }
-  }
-  document.addEventListener('click', goHub, true);
-})();
 </script>
