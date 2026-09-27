@@ -246,5 +246,17 @@
     </div>
   </div>
 
+
+<script id="beatlab-to-games-pill">
+(function(){
+  if(document.getElementById('beatlab-pill')) return;
+  var a=document.createElement('a');
+  a.id='beatlab-pill';
+  a.href='https://anomoly247.github.io/anomoly-archive/beatlab/';
+  a.textContent='BEAT LAB ▶';
+  a.style.cssText='position:fixed;top:14px;right:14px;z-index:2147483647;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:#00eaff;color:#000;font-weight:900;letter-spacing:.14em;font-size:13px;text-decoration:none;border:2px solid #000;box-shadow:0 0 24px rgba(0,234,255,.8)';
+  document.body.appendChild(a);
+})();
+</script>
 </body>
 </html>
