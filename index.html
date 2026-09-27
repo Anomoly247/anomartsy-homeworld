@@ -28,5 +28,23 @@ Error generating stack: `+E.message+`
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
+<!-- AO ALIVE SITE NAVIGATION -->
+<nav class="ao-site-nav" aria-label="AO Universe site navigation">
+  <a href="./" class="ao-site-nav__brand">AO UNIVERSE</a>
+  <div class="ao-site-nav__links">
+    <a href="./games/" class="ao-site-nav__link">PLAY GAMES</a>
+    <a href="./beatlab/" class="ao-site-nav__link">BEAT LAB</a>
+  </div>
+</nav>
+<style>
+  .ao-site-nav{position:fixed;top:16px;left:50%;z-index:2147483000;transform:translateX(-50%);width:min(92%,1120px);min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 14px 8px 18px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.05));box-shadow:0 0 24px rgba(0,234,255,.18),0 12px 34px rgba(0,0,0,.22);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);font-family:Inter,system-ui,sans-serif}
+  .ao-site-nav__brand,.ao-site-nav__link{color:#fff;text-decoration:none;white-space:nowrap}
+  .ao-site-nav__brand{font-family:"Space Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.12em}
+  .ao-site-nav__links{display:flex;align-items:center;gap:8px}
+  .ao-site-nav__link{padding:9px 13px;border:1px solid rgba(0,234,255,.38);border-radius:999px;color:#8af0ff;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.1em}
+  .ao-site-nav__link:hover,.ao-site-nav__link:focus-visible{color:#04040a;background:#00eaff;outline:none}
+  @media (max-width:560px){.ao-site-nav{align-items:stretch;flex-direction:column;border-radius:22px;padding:10px}.ao-site-nav__links{width:100%}.ao-site-nav__link{flex:1;text-align:center;font-size:10px}}
+  @media (prefers-reduced-motion:reduce){.ao-site-nav__link{transition:none}}
+</style>
 </body>
 </html>
