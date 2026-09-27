@@ -29,4 +29,117 @@ Error generating stack: `+l.message+`
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
 </body>
-</html>
+</html><script>
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a');
+  if(!a) return;
+  var h = a.getAttribute('href') || '';
+  if(h.indexOf('/games/')>-1 && h.indexOf('?house=')===-1){
+    e.preventDefault();
+    window.location.href='https://anomarsty.lol/games/?house=1&mount=aurora';
+  }
+});
+</script>
+<script>
+document.addEventListener('click', function(e){
+  var b = e.target.closest('button,a');
+  if(!b) return;
+  var txt = (b.textContent||'').toUpperCase();
+  if(txt.includes('EXPLORE GAMES') || txt.includes('EXPLORE')){
+    e.preventDefault();
+    window.location.href='https://anomarsty.lol/games/?house=1&mount=aurora';
+  }
+}, true);
+</script>
+<script>
+// --- SOUND UNLOCK FOR KIDS ---
+let audioCtx, clickBuf, ambience;
+let isMuted = false;
+
+async function unlockSound(){
+  if(audioCtx) return;
+  audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  // tiny click blip (no file needed)
+  const unlock = () => {
+    if(audioCtx.state==='suspended') audioCtx.resume();
+    document.removeEventListener('click', unlock);
+    document.removeEventListener('touchstart', unlock);
+  };
+  document.addEventListener('click', unlock, {once:true});
+  document.addEventListener('touchstart', unlock, {once:true});
+}
+
+function playBlip(){
+  if(isMuted || !audioCtx) return;
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type='sine'; o.frequency.value=880;
+  g.gain.setValueAtTime(0.15, audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime+0.15);
+  o.connect(g).connect(audioCtx.destination);
+  o.start(); o.stop(audioCtx.currentTime+0.15);
+}
+
+// hook your two kid buttons
+document.addEventListener('click', (e)=>{
+  unlockSound();
+  const b = e.target.closest('button,a');
+  if(!b) return;
+  const txt = (b.textContent||'').toUpperCase();
+  if(txt.includes('PLAY NOW') || txt.includes('EXPLORE')){
+    playBlip();
+  }
+}, true);
+
+// 🔊 mute toggle for kids
+const muteBtn = document.createElement('button');
+muteBtn.textContent='🔊 SOUND ON';
+muteBtn.style.cssText='position:fixed;bottom:16px;right:16px;z-index:99999;padding:10px 14px;border-radius:999px;background:black;color:white;border:2px solid #00eaff;font-family:Geist Mono;font-size:12px;letter-spacing:0.1em;';
+muteBtn.onclick=async()=>{
+  await unlockSound();
+  isMuted=!isMuted;
+  muteBtn.textContent = isMuted ? '🔇 MUTED' : '🔊 SOUND ON';
+  if(!isMuted) playBlip();
+};
+document.body.appendChild(muteBtn);
+</script>
+<script>
+// --- BEAT LAB INJECT ---
+function addBeatLabPill(){
+  document.querySelectorAll('a,button').forEach(b=>{
+    const t = (b.textContent||'').toUpperCase();
+    if(t.includes('EXPLORE GAMES') && !document.querySelector('[data-beatlab-pill]')){
+      const nb = b.cloneNode(true);
+      nb.textContent = 'BEAT LAB 🎛️';
+      nb.setAttribute('data-beatlab-pill','1');
+      nb.href = '/beatlab/';
+      nb.style.background = '#00eaff';
+      nb.style.color = 'black';
+      nb.onclick = (e)=>{ e.preventDefault(); window.location.href='/beatlab/'; playBlip && playBlip(); };
+      b.parentNode.insertBefore(nb, b.nextSibling);
+    }
+  });
+}
+setInterval(addBeatLabPill, 600);
+addBeatLabPill();
+</script>
+<script>
+// --- BEAT LAB INJECT ---
+function addBeatLabPill(){
+  document.querySelectorAll('a,button').forEach(b=>{
+    const t = (b.textContent||'').toUpperCase();
+    if(t.includes('EXPLORE GAMES') && !document.querySelector('[data-beatlab-pill]')){
+      const nb = b.cloneNode(true);
+      nb.textContent = 'BEAT LAB 🎛️';
+      nb.setAttribute('data-beatlab-pill','1');
+      nb.href = '/beatlab/';
+      nb.style.background = '#00eaff';
+      nb.style.color = 'black';
+      nb.onclick = (e)=>{ e.preventDefault(); window.location.href='/beatlab/'; playBlip && playBlip(); };
+      b.parentNode.insertBefore(nb, b.nextSibling);
+    }
+  });
+}
+setInterval(addBeatLabPill, 600);
+addBeatLabPill();
+</script>

@@ -103,3 +103,43 @@ muteBtn.onclick=async()=>{
 };
 document.body.appendChild(muteBtn);
 </script>
+<script>
+// --- BEAT LAB INJECT ---
+function addBeatLabPill(){
+  document.querySelectorAll('a,button').forEach(b=>{
+    const t = (b.textContent||'').toUpperCase();
+    if(t.includes('EXPLORE GAMES') && !document.querySelector('[data-beatlab-pill]')){
+      const nb = b.cloneNode(true);
+      nb.textContent = 'BEAT LAB 🎛️';
+      nb.setAttribute('data-beatlab-pill','1');
+      nb.href = '/beatlab/';
+      nb.style.background = '#00eaff';
+      nb.style.color = 'black';
+      nb.onclick = (e)=>{ e.preventDefault(); window.location.href='/beatlab/'; playBlip && playBlip(); };
+      b.parentNode.insertBefore(nb, b.nextSibling);
+    }
+  });
+}
+setInterval(addBeatLabPill, 600);
+addBeatLabPill();
+</script>
+<script>
+// --- BEAT LAB INJECT ---
+function addBeatLabPill(){
+  document.querySelectorAll('a,button').forEach(b=>{
+    const t = (b.textContent||'').toUpperCase();
+    if(t.includes('EXPLORE GAMES') && !document.querySelector('[data-beatlab-pill]')){
+      const nb = b.cloneNode(true);
+      nb.textContent = 'BEAT LAB 🎛️';
+      nb.setAttribute('data-beatlab-pill','1');
+      nb.href = '/beatlab/';
+      nb.style.background = '#00eaff';
+      nb.style.color = 'black';
+      nb.onclick = (e)=>{ e.preventDefault(); window.location.href='/beatlab/'; playBlip && playBlip(); };
+      b.parentNode.insertBefore(nb, b.nextSibling);
+    }
+  });
+}
+setInterval(addBeatLabPill, 600);
+addBeatLabPill();
+</script>
