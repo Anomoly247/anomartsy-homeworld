@@ -46,5 +46,36 @@ Error generating stack: `+E.message+`
   @media (max-width:560px){.ao-site-nav{align-items:stretch;flex-direction:column;border-radius:22px;padding:10px}.ao-site-nav__links{width:100%}.ao-site-nav__link{flex:1;text-align:center;font-size:10px}}
   @media (prefers-reduced-motion:reduce){.ao-site-nav__link{transition:none}}
 </style>
+<!-- AO DESTINATION REGISTRY + SHARED BRIDGE -->
+<script src="./config/ao-destinations.js"></script>
+<script src="./assets/ao-bridge.js"></script>
+<script src="./assets/ao-world-map.js"></script>
+<style>
+  .ao-map-trigger{cursor:pointer;background:transparent}
+  #ao-destination-map{display:none;position:fixed;inset:0;z-index:2147483000;font-family:Inter,system-ui,sans-serif}
+  #ao-destination-map.open{display:block}
+  .ao-map-backdrop{position:absolute;inset:0;background:rgba(3,4,10,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .ao-map-panel{position:relative;width:min(1120px,calc(100% - 28px));max-height:calc(100vh - 44px);overflow:auto;margin:22px auto 0;padding:24px;border:1px solid rgba(0,234,255,.32);border-radius:24px;background:linear-gradient(145deg,rgba(12,15,28,.98),rgba(8,8,16,.96));box-shadow:0 24px 80px rgba(0,0,0,.55);color:#e8e6d9}
+  .ao-map-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+  .ao-map-kicker{font:10px monospace;letter-spacing:.2em;color:#00eaff}
+  .ao-map-panel h2{margin-top:8px;font-size:24px;font-weight:800;letter-spacing:.02em}
+  .ao-map-context{margin-top:6px;color:rgba(255,255,255,.5);font:11px monospace;letter-spacing:.08em}
+  .ao-map-close{width:34px;height:34px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(255,255,255,.06);color:#fff;font-size:22px;cursor:pointer}
+  .ao-map-filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .ao-map-filters button{padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.04);color:rgba(255,255,255,.66);font:10px monospace;letter-spacing:.12em;cursor:pointer}
+  .ao-map-filters button.active{border-color:rgba(0,234,255,.5);background:rgba(0,234,255,.1);color:#8af0ff}
+  .ao-map-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .ao-map-card{min-height:170px;padding:15px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.035);display:flex;flex-direction:column}
+  .ao-map-card:hover{border-color:rgba(216,174,85,.45)}
+  .ao-map-card-top,.ao-map-card-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .ao-map-category,.ao-map-card-foot span{font:9px monospace;letter-spacing:.15em;color:rgba(255,255,255,.38)}
+  .ao-map-status{font:9px monospace;letter-spacing:.12em;color:#00eaff}.status-preview{color:#d8ae55}.status-pending{color:#ff6aa9}.status-source{color:#b18cff}
+  .ao-map-card h3{margin-top:15px;font-size:16px;font-weight:700}
+  .ao-map-card p{margin-top:7px;min-height:44px;color:rgba(255,255,255,.56);font-size:11px;line-height:1.45}
+  .ao-map-card-foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+  .ao-map-card-foot a{color:#8af0ff;text-decoration:none;font:10px monospace;letter-spacing:.1em}
+  @media (max-width:760px){.ao-map-grid{grid-template-columns:1fr 1fr}.ao-map-panel{padding:18px}.ao-site-nav__links{flex-wrap:wrap;justify-content:flex-end}}
+  @media (max-width:520px){.ao-map-grid{grid-template-columns:1fr}.ao-map-panel{margin-top:12px;max-height:calc(100vh - 24px)}}
+</style>
 </body>
 </html>
