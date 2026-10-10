@@ -85,9 +85,9 @@ window.AO_DESTINATIONS = [
     name: "Library World",
     category: "world",
     description: "Moonberry Farm, Color Corner, and the black modern library.",
-    url: "https://github.com/Anomoly247/anom-artsy-xyz-library-world",
-    integration: "external-source",
-    status: "source",
+    url: "/library-world/",
+    integration: "same-domain",
+    status: "live",
     houseAware: true
   },
   {
