@@ -79,6 +79,13 @@
       .ao-global-nav__link { min-width: 0; }
       .ao-global-nav__link:last-child { grid-column: 1 / -1; }
     }
+    @media (max-width: 560px) {
+      .orbit-system-container { max-width: 100%; overflow: hidden; }
+      .celestial-world-portal { width: 210px; height: 210px; padding: 14px; }
+      .house-2 { right: 10px; }
+      .house-3 { right: 15px; }
+      .house-5, .house-6 { left: 10px; }
+    }
     @media (prefers-reduced-motion: reduce) { .ao-global-nav *, .ao-global-nav *::before, .ao-global-nav *::after { transition: none !important; animation: none !important; } }
   `;
 
