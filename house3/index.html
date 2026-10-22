@@ -32,5 +32,6 @@
   <script>
     (function () { var buttons=document.querySelectorAll('.buddy'),message=document.getElementById('message'),lines={Sunny:['You found a bright moment!','Sunny says: your smile can glow.','It is okay to feel happy.'],Breezy:['Take one slow, cozy breath.','Breezy says: calm can arrive softly.','It is okay to need a quiet cloud.']}; buttons.forEach(function(button){button.addEventListener('click',function(){var name=button.dataset.name;button.classList.remove('is-bouncing');void button.offsetWidth;button.classList.add('is-bouncing');message.textContent=lines[name][Math.floor(Math.random()*lines[name].length)];});button.addEventListener('animationend',function(){button.classList.remove('is-bouncing');});}); document.getElementById('reset').addEventListener('click',function(){message.textContent='Choose a buddy to begin.';}); }());
   </script>
+  <script src="/assets/ao-site-nav.js"></script>
 </body>
 </html>

@@ -101,6 +101,16 @@ window.AO_DESTINATIONS = [
     houseAware: false
   },
   {
+    id: "build-ao",
+    name: "Build AO With Us",
+    category: "campaign",
+    description: "Review the adult-directed supporter campaign and its creator-rights boundaries.",
+    url: "/build-ao-with-us/",
+    integration: "same-domain",
+    status: "preview",
+    houseAware: false
+  },
+  {
     id: "originals",
     name: "Anom Originals",
     category: "create",
