@@ -1,15 +1,15 @@
 :root {
-  --void: #070811;
-  --panel: rgba(15, 18, 35, .78);
-  --panel-strong: #101426;
-  --ink: #f5f7ff;
-  --muted: #a9b0c9;
-  --faint: #747c9a;
+  --void: #000000;
+  --panel: rgba(0, 0, 0, .84);
+  --panel-strong: #020607;
+  --ink: #8af0ff;
+  --muted: #65b9c6;
+  --faint: #47727a;
   --cyan: #00eaff;
   --cyan-soft: #8af0ff;
   --magenta: #ff4bd8;
   --gold: #e4bd69;
-  --line: rgba(255,255,255,.14);
+  --line: rgba(0,234,255,.2);
   --max: 1180px;
 }
 
@@ -19,9 +19,9 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 82% 8%, rgba(0,234,255,.14), transparent 26rem),
-    radial-gradient(circle at 12% 42%, rgba(255,75,216,.10), transparent 28rem),
-    linear-gradient(145deg, #070811 0%, #0a0b17 52%, #080813 100%);
+    radial-gradient(circle at 82% 8%, rgba(0,234,255,.11), transparent 26rem),
+    radial-gradient(circle at 12% 42%, rgba(0,234,255,.045), transparent 28rem),
+    #000;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.55;
   min-height: 100vh;
@@ -34,7 +34,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   opacity: .36;
-  background-image: radial-gradient(rgba(255,255,255,.65) 1px, transparent 1px), radial-gradient(rgba(0,234,255,.5) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0,234,255,.6) 1px, transparent 1px), radial-gradient(rgba(0,234,255,.35) 1px, transparent 1px);
   background-size: 112px 112px, 184px 184px;
   background-position: 14px 18px, 65px 92px;
 }
@@ -70,7 +70,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
   position: relative;
   z-index: 2;
 }
-.wordmark { display: inline-flex; align-items: center; gap: .7rem; color: var(--ink); font: 800 .76rem/1 "Space Mono", ui-monospace, monospace; letter-spacing: .16em; text-decoration: none; }
+.wordmark { display: inline-flex; align-items: center; gap: .7rem; color: var(--cyan-soft); font: 800 .76rem/1 "Space Mono", ui-monospace, monospace; letter-spacing: .16em; text-decoration: none; }
 .wordmark-mark { display: inline-flex; align-items: center; justify-content: center; width: 2.35rem; height: 2.35rem; border: 1px solid var(--cyan); border-radius: 50%; color: var(--cyan); box-shadow: 0 0 22px rgba(0,234,255,.35); font-size: .8rem; }
 .wordmark-mark span { color: var(--magenta); }
 .site-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .45rem; }
@@ -101,7 +101,7 @@ h3 { margin: 0; line-height: 1.1; }
 .signal-ring-cyan { box-shadow: 0 0 45px rgba(0,234,255,.18), inset 0 0 36px rgba(0,234,255,.12); }
 .signal-ring-magenta { inset: 12%; border-color: rgba(255,75,216,.42); transform: rotate(-36deg) scaleX(.72); }
 .signal-core { width: 38%; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--cyan); border-radius: 50%; background: radial-gradient(circle, rgba(0,234,255,.35), rgba(7,8,17,.95) 68%); box-shadow: 0 0 44px rgba(0,234,255,.5), inset 0 0 24px rgba(0,234,255,.3); color: var(--ink); font: 800 clamp(1.2rem, 3vw, 2.2rem)/1 "Space Mono", ui-monospace, monospace; letter-spacing: -.1em; }
-.signal-label { position: absolute; bottom: 5%; color: var(--gold); font: 700 .61rem/1.5 "Space Mono", ui-monospace, monospace; letter-spacing: .16em; text-align: center; }
+.signal-label { position: absolute; bottom: 5%; color: var(--cyan-soft); font: 700 .61rem/1.5 "Space Mono", ui-monospace, monospace; letter-spacing: .16em; text-align: center; }
 
 .section-rule { padding: 7rem 0; border-top: 1px solid var(--line); }
 .section-intro { max-width: 750px; }
@@ -120,7 +120,7 @@ h3 { margin: 0; line-height: 1.1; }
 .path-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 105px 95px; align-items: center; gap: 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid var(--line); }
 .path-code, .path-status { color: var(--cyan); font: 700 .68rem/1.2 "Space Mono", ui-monospace, monospace; letter-spacing: .1em; }
 .path-main h3 { font-size: 1.15rem; }.path-main p { max-width: 600px; margin: .35rem 0 0; color: var(--muted); font-size: .9rem; }
-.path-price { color: var(--ink); font: 800 1.2rem/1 "Space Grotesk", sans-serif; }.path-price span { display: block; margin-top: .32rem; color: var(--faint); font: .62rem/1 "Space Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }.path-status { color: var(--gold); text-align: right; }
+.path-price { color: var(--cyan-soft); font: 800 1.2rem/1 "Space Grotesk", sans-serif; }.path-price span { display: block; margin-top: .32rem; color: var(--faint); font: .62rem/1 "Space Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }.path-status { color: var(--cyan); text-align: right; }
 .not-live { margin: 1.5rem 0 0; color: var(--gold); font: .74rem/1.5 "Space Mono", ui-monospace, monospace; letter-spacing: .05em; }
 .not-live span { margin-right: .4rem; color: var(--magenta); }
 .rights-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
