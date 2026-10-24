@@ -127,7 +127,7 @@ h3 { margin: 0; line-height: 1.1; }
 .rights-principle { min-height: 230px; padding: 1.1rem; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(155deg, rgba(255,255,255,.06), rgba(255,255,255,.015)); }
 .rights-principle .principle-mark { margin-bottom: 2rem; color: var(--magenta); }.rights-principle:nth-child(2) .principle-mark { color: var(--cyan); }.rights-principle:nth-child(3) .principle-mark { color: var(--gold); }.rights-principle:nth-child(4) .principle-mark { color: #b9a6ff; }
 .rights-principle h3 { font-size: 1.17rem; }
-.vision-section { display: grid; grid-template-columns: minmax(0, .9fr) minmax(280px, 1.1fr); align-items: center; gap: 5rem; }
+.vision-section { display: grid; grid-template-columns: minmax(0, .9fr) minmax(280px, 1.1fr); align-items: center; gap: 5rem; overflow-x: clip; }
 .vision-copy > p:last-child { max-width: 610px; color: var(--muted); font-size: 1.08rem; }
 .vision-lines { height: 220px; display: flex; align-items: center; gap: 1rem; transform: skewX(-24deg); }
 .vision-lines span { height: 100%; flex: 1; border: 1px solid rgba(0,234,255,.45); background: linear-gradient(180deg, rgba(0,234,255,.15), transparent); }.vision-lines span:nth-child(2) { height: 75%; border-color: rgba(255,75,216,.5); }.vision-lines span:nth-child(3) { height: 52%; border-color: rgba(228,189,105,.55); }.vision-lines span:nth-child(4) { height: 31%; border-color: rgba(185,166,255,.55); }
